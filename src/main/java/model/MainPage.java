@@ -23,11 +23,11 @@ public class MainPage {
         return this;
     }
 
-    public boolean checkFAQPanel(String faqButton, String faqPanel, String faqData) {
-        WebElement element = driver.findElement(By.id(faqButton));
+    public boolean checkFAQPanel(By faqButton, By faqPanel, String faqData) {
+        WebElement element = driver.findElement(faqButton);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", element);
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(By.id(faqButton))).click();
-        String text = driver.findElement(By.id(faqPanel)).getText();
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(faqButton)).click();
+        String text = driver.findElement(faqPanel).getText();
         return text.equals(faqData);
     }
 
