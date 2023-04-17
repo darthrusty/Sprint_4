@@ -43,7 +43,7 @@ public class OrderTest {
         this.color   = color;
     }
 
-    @Parameters
+    @Parameters(name = "Проверка Заказа. Тестовые данные: {0} {1} {2} {3} {4} {5} {6}")
     public static Object[][] getData() {
         return new Object[][] {
              {"Имярек", "Имяреков", "улица имени Имярекова", "88888888888", "Бульвар Рокоссовского", "семеро суток", "black"},
@@ -59,11 +59,14 @@ public class OrderTest {
     }
 
     @Test
-    public void checkTextFAQPannel() {
+    public void checkOrder() {
         boolean result;
         OrderPage orderPage = new OrderPage(driver);
         orderPage.open();
-        result = orderPage.checkOrder(name, surname, address, phone, metro, length, color);
+        orderPage.checkStartingOrder();
+        orderPage.checkFillPersonalFields(name, surname, address, metro, phone);
+        orderPage.checkFillScooterFields(length, color);
+        result = orderPage.checkConfirmation();
         Assert.assertTrue(result);
     }
 

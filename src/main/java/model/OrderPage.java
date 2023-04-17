@@ -35,10 +35,13 @@ public class OrderPage {
         return this;
     }
 
-    public boolean checkOrder(String name, String surname, String address, String phone, String metro, String length, String color) {
+    public void checkStartingOrder () {
         WebElement elementMaiPageOrderButton = driver.findElement(maiPageOrderButton);
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", elementMaiPageOrderButton);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", elementMaiPageOrderButton);
         elementMaiPageOrderButton.click();
+    }
+
+    public void checkFillPersonalFields(String name, String surname, String address, String metro, String phone) {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(fieldName)).sendKeys(name);
         driver.findElement(fieldSurname).sendKeys(surname);
         driver.findElement(fieldAdress).sendKeys(address);
@@ -47,6 +50,9 @@ public class OrderPage {
         driver.findElement(fieldMetro).sendKeys(Keys.DOWN);
         driver.findElement(fieldMetro).sendKeys(Keys.ENTER);
         driver.findElement(fistConfirmOrderButton).click();
+    }
+
+    public void checkFillScooterFields(String length, String color) {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(fieldComment)).sendKeys("");
         driver.findElement(fieldDate).click();
         driver.findElement(fieldCalendar).click();
@@ -56,10 +62,13 @@ public class OrderPage {
         elementLength.click();
         driver.findElement(By.id(color)).click();
         driver.findElement(secondConfimOrderButton).click();
+    }
+        public boolean checkConfirmation() {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(thirdConfirmOrderButton)).click();
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(fieldConfirmed));
         String text = driver.findElement(fieldConfirmed).getText();
         return text.equals("Заказ оформлен");
     }
+
 
 }
