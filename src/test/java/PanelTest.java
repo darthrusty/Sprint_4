@@ -11,27 +11,27 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import static model.MainPage.faqButton0;
+import static model.MainPage.faqButton1;
+import static model.MainPage.faqButton2;
+import static model.MainPage.faqButton3;
+import static model.MainPage.faqButton4;
+import static model.MainPage.faqButton5;
+import static model.MainPage.faqButton6;
+import static model.MainPage.faqButton7;
+import static model.MainPage.faqPanel0;
+import static model.MainPage.faqPanel1;
+import static model.MainPage.faqPanel2;
+import static model.MainPage.faqPanel3;
+import static model.MainPage.faqPanel4;
+import static model.MainPage.faqPanel5;
+import static model.MainPage.faqPanel6;
+import static model.MainPage.faqPanel7;
+
 @RunWith(Parameterized.class)
 public class PanelTest {
 
     private WebDriver driver;
-
-    private static By faqButton0 = By.id("accordion__heading-0");
-    private static By faqButton1 = By.id("accordion__heading-1");
-    private static By faqButton2 = By.id("accordion__heading-2");
-    private static By faqButton3 = By.id("accordion__heading-3");
-    private static By faqButton4 = By.id("accordion__heading-4");
-    private static By faqButton5 = By.id("accordion__heading-5");
-    private static By faqButton6 = By.id("accordion__heading-6");
-    private static By faqButton7 = By.id("accordion__heading-7");
-    private static By faqPanel0 = By.id("accordion__panel-0");
-    private static By faqPanel1 = By.id("accordion__panel-1");
-    private static By faqPanel2 = By.id("accordion__panel-2");
-    private static By faqPanel3 = By.id("accordion__panel-3");
-    private static By faqPanel4 = By.id("accordion__panel-4");
-    private static By faqPanel5 = By.id("accordion__panel-5");
-    private static By faqPanel6 = By.id("accordion__panel-6");
-    private static By faqPanel7 = By.id("accordion__panel-7");
 
     private final By faqButton;
     private final By faqPanel;
